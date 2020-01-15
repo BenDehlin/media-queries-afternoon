@@ -24,7 +24,6 @@ header{
 .header{
   height: 60px;
   width: 100%;
-  /* background-color: #212529; */
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -103,6 +102,15 @@ button{
   display: flex;
   flex-flow: column;
   justify-content: space-around;
+}
+
+@keyframes open{
+  from{
+    height: 0px;
+  }
+  to{
+    height: 150px;
+  }
 }
 
 @media(max-width: 800px){
