@@ -3,10 +3,17 @@ import React, {Component} from 'react'
 export default class Header extends Component{
   constructor(){
     super()
-    this.state = {}
+    this.state = {
+      showDropdown: false
+    }
+  }
+
+  toggleHeader=()=> {
+    this.setState({showDropdown: !this.state.showDropdown})
   }
 
   render(){
+    let {showDropdown} = this.state
     return(
       <header>
         <section className="header">
@@ -19,9 +26,21 @@ export default class Header extends Component{
             <a>CONTACT</a>
           </nav>
           <nav id="mobile-nav">
-            <button id="menu-button">MENU</button>
+            <button id="menu-button"
+            onClick={() => this.toggleHeader()}>MENU</button>
           </nav>
         </section>
+        {showDropdown ?
+        (<div id="dropdown">
+          <div id="dropdown-menu-items">
+            <a>SERVICES</a>
+            <a>PORTFOLIO</a>
+            <a>ABOUT</a>
+            <a>TEAM</a>
+            <a>CONTACT</a>
+          </div>
+          <div></div>
+        </div>): null}
         <div class="welcome">
           <div></div>
           <p>
